@@ -1,0 +1,24 @@
+<ProxyEndpoint name="default">
+	<Flows>
+		<Flow name="GET /">
+			<Description>GET /</Description>
+			<Request>
+				<Step>
+					<Name>KVM-GetAskiaKey</Name>
+				</Step>
+				<Step>
+					<!-- <Condition>askia.apikey != null AND askia.apikey != ""</Condition> -->
+					<Name>AM-SetApiKey</Name>
+				</Step>
+			</Request>
+			<Response/>
+			<Condition>(proxy.pathsuffix MatchesPath "/") AND (request.verb = "GET")</Condition>
+		</Flow>
+	</Flows>
+	<HTTPProxyConnection>
+		<BasePath>/myproxy</BasePath>
+	</HTTPProxyConnection>
+	<RouteRule name="default-route">
+		<TargetEndpoint>default</TargetEndpoint>
+	</RouteRule>
+</ProxyEndpoint>

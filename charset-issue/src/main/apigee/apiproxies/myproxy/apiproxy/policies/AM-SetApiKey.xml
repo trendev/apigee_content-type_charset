@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage continueOnError="false" enabled="true" name="AM-SetApiKey">
+    <DisplayName>AM-SetApiKey</DisplayName>
+    <Add>
+        <QueryParams>
+            <QueryParam name="apiKey">{askia.apikey}</QueryParam>
+        </QueryParams>
+        <Headers>
+            <Header name="apiKey">{askia.apikey}</Header>
+        </Headers>
+    </Add>
+    <AssignTo>request</AssignTo>
+</AssignMessage>

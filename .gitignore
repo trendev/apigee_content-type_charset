@@ -1,0 +1,5 @@
+# remove macos metadata files
+.DS_Store
+
+# remove emulator files
+target

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations name="KVM-GetAskiaKey" mapIdentifier="askia_internals">>
+    <DisplayName>KVM-GetAskiaKey</DisplayName>
+    <Get assignTo="askia.apikey">
+        <Key>
+            <Parameter>askia_apikey</Parameter>
+        </Key>
+    </Get>
+    <Scope>environment</Scope>
+</KeyValueMapOperations>

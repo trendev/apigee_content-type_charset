@@ -1,0 +1,10 @@
+[
+  {
+    "entries": {
+      "askia_apikey": "a+bcde123/zzzyyy/1mAnZaRVB1an"
+    },
+    "scope": "environment",
+    "environment": "dev",
+    "name": "askia_internals"
+  }
+]
