@@ -21,10 +21,12 @@ Providing data in `QueryParam`, containing '`+`' character, could be an **issue*
 -  apigee vscode plugin setup :white_check_mark:
 -  apigee emulator up & running :white_check_mark:
 
-### Normal behavior :blush:
+## :blush: Normal behavior
 
-> curl "http://localhost:8998/myproxy"
-
+```
+curl "http://localhost:8998/myproxy"
+```
+:arrow_down:
 ```
 {
   "args": {
@@ -42,10 +44,16 @@ Providing data in `QueryParam`, containing '`+`' character, could be an **issue*
 }
 ```
 
-### Issue providing `charset` with `content-type` :fearful:
+We can note in `https://httpbin.org/get` Response, in _args_ property, that `apiKey` **is not interpreted** by APIGEE.
 
-> curl --header 'Content-Type: application/json ;charset=utf-8' "http://localhost:8998/myproxy"
+We can observe the same thing in _headers_ property for `Apikey` value.
 
+## :fearful: Issue providing `charset` with `content-type`
+
+```
+curl --header 'Content-Type: application/json ;charset=utf-8' "http://localhost:8998/myproxy"
+```
+:arrow_down:
 ```
 {
   "args": {
@@ -63,3 +71,9 @@ Providing data in `QueryParam`, containing '`+`' character, could be an **issue*
   "url": "https://httpbin.org/get?apiKey=a bcde123%2Fzzzyyy%2F1mAnZaRVB1an"
 }
 ```
+
+This time, we can note in `https://httpbin.org/get` Response, in _args_ property, that `apiKey` **is interpreted** and in _headers_ property that `Apikey` **is not interpreted** !
+
+Usually, '`+`' character is interpreted into '`SPACE`' character in `QueryParams` but it remains interesting to see that APIGEE is only performing this translation when `charset` value is set in `Content-Type`.
+
+> This could be an abnormal behavior.
