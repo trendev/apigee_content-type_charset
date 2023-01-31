@@ -1,4 +1,25 @@
-# APIGEE Proxy demonstrating issue setting `charset` value in `content-type` Http Header  
+# APIGEE Proxy demonstrating issue setting `charset` value in `Content-Type` Http Header    
+
+## Issue Description
+
+Looks like APIGEE forces URL encoding of `QueryParam` content if `charset` value is set in Http Header `Content-Type`. 
+
+Providing data in `QueryParam`, containing '`+`' character, could be an **issue** for backend services leveraging accurate data.
+
+## Mitigation
+
+:thumbsup: Provide data in Http Request `Headers` instead of `QueryParams`. 
+
+:point_right: Escaping characters or using javascript functions (like  `encodeURIComponent()`) does not solve the problem and BTW data is URL encoded twice...
+ 
+## Proxy's principles
+
+**Very simple pass-through proxy**, reading a value in a `KVM`, adding the value in `QueryParam` and `Header` and forwarding the Request to `https://httpbin.org/get`. 
+
+## Requirements
+-  docker installed :white_check_mark:
+-  apigee vscode plugin setup :white_check_mark:
+-  apigee emulator up & running :white_check_mark:
 
 ### Normal behavior :blush:
 
