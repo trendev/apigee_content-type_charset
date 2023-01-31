@@ -1,4 +1,4 @@
-# Proxy demonstrating issue setting `charset` value in http Header `content-type` 
+# APIGEE Proxy demonstrating issue setting `charset` value in `content-type` Http Header  
 
 ### Normal behavior :blush:
 
