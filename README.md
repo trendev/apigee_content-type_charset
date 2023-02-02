@@ -76,4 +76,15 @@ This time, we can note in `https://httpbin.org/get` Response, in _args_ property
 
 Usually, '`+`' character is interpreted into '`SPACE`' character in `QueryParams` but it remains interesting to see that APIGEE is only performing this translation when `charset` value is set in `Content-Type`.
 
-## :rotating_light: This could be an abnormal behavior.
+## :rotating_light: This could be an abnormal behavior...
+
+## :tada: Update on 02/02/2023: we have a fix from Google's support !!!
+Adding a `property` in apiproxy's defintion (_default.xml_ file) fixes the problem:
+```xml
+<HTTPProxyConnection>
+ <BasePath>/myproxy</BasePath>
+ <Properties>
+  <Property name="request.queryparams.ignore.content.type.charset">true</Property>
+ </Properties>
+</HTTPProxyConnection>
+```
