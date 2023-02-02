@@ -79,7 +79,7 @@ Usually, '`+`' character is interpreted into '`SPACE`' character in `QueryParams
 ## :rotating_light: This could be an abnormal behavior...
 
 ## :tada: Update on 02/02/2023: we have a fix from Google's support !!!
-Adding a `property` in apiproxy's defintion (_default.xml_ file) fixes the problem:
+Adding a `property` in apiproxy's definition (_default.xml_ file) fixes the problem:
 ```xml
 <HTTPProxyConnection>
  <BasePath>/myproxy</BasePath>
