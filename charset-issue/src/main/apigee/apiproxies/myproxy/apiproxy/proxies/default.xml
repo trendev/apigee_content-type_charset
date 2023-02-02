@@ -17,6 +17,9 @@
 	</Flows>
 	<HTTPProxyConnection>
 		<BasePath>/myproxy</BasePath>
+		<Properties>
+			<Property name="request.queryparams.ignore.content.type.charset">true</Property>
+		</Properties>
 	</HTTPProxyConnection>
 	<RouteRule name="default-route">
 		<TargetEndpoint>default</TargetEndpoint>
